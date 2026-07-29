@@ -4,16 +4,20 @@
 #include <stdio.h>
 
 int main(void) {
-    void *handle = dlopen("libother.so", RTLD_NOW);
+    void *handle;
+    void (*print_message)(void);
+    char *error;
+
+    handle = dlopen("libother.so", RTLD_NOW);
     if (handle == NULL) {
         fprintf(stderr, "dlopen(\"libother.so\", RTLD_NOW) failed: %s\n", dlerror());
         return 1;
     }
 
     dlerror(); /* clear errors as a good citizen */
-    void (*print_message)(void) = dlsym(handle, "print_message");
+    print_message = dlsym(handle, "print_message");
 
-    char *error = dlerror();
+    error = dlerror();
     if (error != NULL) {
         fprintf(stderr, "dlsym(handle, \"print_message\") failed: %s\n", error);
         if (dlclose(handle) != 0) {

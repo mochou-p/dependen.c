@@ -1,6 +1,8 @@
 # mochou-p/dependen.c/02-dynamic-linking/makefile
 
+CFLAGS := -std=c89 -Wall -Wextra -Wpedantic
+
 build:
-	gcc -c -fPIC other.c -o other.o
-	gcc -shared other.o -o libother.so
-	gcc main.c -L. -lother
+	gcc $(CFLAGS) -c -fPIC other.c -o other.o
+	gcc $(CFLAGS) -shared other.o -o libother.so
+	gcc $(CFLAGS) main.c -L. -lother

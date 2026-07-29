@@ -1,6 +1,8 @@
 # mochou-p/dependen.c/01-static-linking/makefile
 
+CFLAGS := -std=c89 -Wall -Wextra -Wpedantic
+
 build:
-	gcc -c other.c -o other.o
+	gcc $(CFLAGS) -c other.c -o other.o
 	ar rcs libother.a other.o
-	gcc main.c libother.a
+	gcc $(CFLAGS) main.c libother.a
