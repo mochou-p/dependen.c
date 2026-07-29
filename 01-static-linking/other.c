@@ -3,5 +3,5 @@
 #include <stdio.h>
 
 void print_message(void) {
-    puts("hello world");
+    puts("hello world from a statically linked .a file");
 }

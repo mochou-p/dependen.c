@@ -1,4 +1,4 @@
-/* mochou-p/dependen.c/01-static-linking/main.c */
+/* mochou-p/dependen.c/02-dynamic-linking/main.c */
 
 extern void print_message(void);
 
