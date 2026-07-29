@@ -1,0 +1,5 @@
+# mochou-p/dependen.c/.gitignore
+
+*/a.out
+*/*.a
+*/*.o
